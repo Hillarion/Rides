@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -35,6 +36,7 @@ class ListFragment : Fragment() {
     private lateinit var button : Button
     private lateinit var inputField : EditText
     private lateinit var recyclerView : RecyclerView
+    private lateinit var sortByMake : CheckBox
 
     private val listener : RowClickedListener = object : RowClickedListener {
         override fun onClicked(vin: String) {
@@ -80,6 +82,11 @@ class ListFragment : Fragment() {
 
         button = binding.buttonFetch
         inputField = binding.inputField
+        sortByMake = binding.sortCheck
+        sortByMake.isChecked = viewModel.sortValue
+        sortByMake.setOnCheckedChangeListener {btn, isChecked ->
+            viewModel.sortValue = isChecked
+        }
         recyclerView = binding.vehicleList
         recyclerView.adapter = vehicleAdapter
         recyclerView.addItemDecoration(DividerItemDecoration(requireActivity(), DividerItemDecoration.VERTICAL))
