@@ -8,8 +8,6 @@ import com.thierrystpierre.rides.data.api.VehicleApiManager
 import com.thierrystpierre.rides.data.models.SortedVehicle
 import com.thierrystpierre.rides.data.models.Vehicle
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.ktor.util.valuesOf
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -27,11 +25,6 @@ class ListViewModel @Inject constructor(
     var sortedVehicles = MutableLiveData<List<SortedVehicle>>()
     var vehicles = mutableListOf<Vehicle>()
 
-    fun updateSortValue(check : Boolean) {
-        sortValue = check
-        sortedVehicles.postValue(sortVehicle(vehicles, sortValue))
-    }
-
     fun getVehicle(vin : String) : Vehicle {
         Log.d("ListViewModel", "getVehicle($vin) ")
         return vehicles.filter { ve -> ve.vin == vin}.first()
@@ -48,6 +41,7 @@ class ListViewModel @Inject constructor(
 
     fun fetchVehicles() {
         Log.d("ListViewModel", "fetchVehicles($quantity) ")
+
         viewModelScope.launch {
             apiManager.getVehicles(quantity ?: 1,
                 onResult = { response ->
@@ -64,5 +58,4 @@ class ListViewModel @Inject constructor(
             )
         }
     }
-
 }
