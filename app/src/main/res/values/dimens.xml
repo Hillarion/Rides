@@ -1,5 +1,7 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="mid_margin">16dp</dimen>
+    <dimen name="activity_double_margin">32dp</dimen>
     <dimen name="page_margin">20dp</dimen>
     <dimen name="half_page_margin">10dp</dimen>
     <dimen name="label_spacer_margin">3dp</dimen>
@@ -8,5 +10,11 @@
     <dimen name="field_text_size">16sp</dimen>
     <dimen name="row_label_size">8sp</dimen>
     <dimen name="row_text_size">12sp</dimen>
+    <dimen name="title_size">22sp</dimen>
+    <dimen name="text_size">18sp</dimen>
+    <dimen name="huge_text_size">26sp</dimen>
+
+    <dimen name="min_button_width">130dp</dimen>
+    <dimen name="min_button_height">35dp</dimen>
 
 </resources>

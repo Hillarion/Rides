@@ -7,27 +7,38 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Vehicle(
     val id : Int,
-//    val uid :String,
+    val uid :String,
     val vin :String,
     val make_and_model :String,
     val color:String,
-//    val transmission :String,
-//    val drive_type :String,
-//    val fuel_type :String,
+    val transmission :String,
+    val drive_type :String,
+    val fuel_type :String,
     val car_type :String,
-//    val doors: Int,
-//    val mileage : Int,
-//    val kilometrage: Int,
-//    val license_plate : String,
-//    val specs: List<String>,
-//    val car_options: List<String>
+    val doors: Int,
+    val mileage : Int,
+    val kilometrage: Int,
+    val license_plate : String,
+    val specs: List<String>?,
+    val car_options: List<String>?
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         id = parcel.readInt(),
+        uid = parcel.readString()?: "",
         vin = parcel.readString()?: "",
         make_and_model = parcel.readString()?: "",
         color = parcel.readString()?: "",
-        car_type = parcel.readString()?: ""
+        transmission = parcel.readString()?: "",
+        drive_type  = parcel.readString()?: "",
+        fuel_type = parcel.readString()?: "",
+        car_type = parcel.readString()?: "",
+        doors = parcel.readInt(),
+        mileage = parcel.readInt(),
+        kilometrage = parcel.readInt(),
+        license_plate = parcel.readString()?: "",
+        specs = parcel.createStringArrayList(),
+        car_options = parcel.createStringArrayList(),
+
     )
     override fun describeContents(): Int {
         return 0
@@ -35,10 +46,20 @@ data class Vehicle(
 
     override fun writeToParcel(dest: Parcel, flags: Int) {
         dest.writeInt(id)
+        dest.writeString(uid)
         dest.writeString(vin)
         dest.writeString(make_and_model)
         dest.writeString(color)
+        dest.writeString(transmission)
+        dest.writeString(drive_type)
+        dest.writeString(fuel_type)
         dest.writeString(car_type)
+        dest.writeInt(doors)
+        dest.writeInt(mileage)
+        dest.writeInt(kilometrage)
+        dest.writeString(license_plate)
+        dest.writeStringList(specs)
+        dest.writeStringList(car_options)
     }
 
     companion object CREATOR : Parcelable.Creator<Vehicle> {

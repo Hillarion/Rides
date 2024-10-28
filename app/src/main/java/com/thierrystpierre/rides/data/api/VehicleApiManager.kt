@@ -10,7 +10,7 @@ class VehicleApiManager (
     private val vehicleApi : VehicleApi
 ) {
     internal suspend fun getVehicles(
-        numberItems : Int,
+        numberItems : UInt,
         onResult: suspend (ResponseModel<List<Vehicle>>) -> Unit,
         onError: suspend (ResponseErrorModel) -> Unit) {
         Log.d("VehicleApiManager", "getVehicles($numberItems) ")

@@ -7,13 +7,35 @@ import android.view.Menu
 import android.view.MenuItem
 import com.thierrystpierre.rides.R
 import com.thierrystpierre.rides.databinding.ActivityMainBinding
+import com.thierrystpierre.rides.util.DialogUtils
+import com.thierrystpierre.rides.util.ErrorBus
+import com.thierrystpierre.rides.util.ErrorStatus
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+import kotlin.coroutines.CoroutineContext
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), CoroutineScope {
 
     private lateinit var binding: ActivityMainBinding
+    @Inject
+    lateinit var errorBus : ErrorBus
+    private var receiveJob : Job? = null
+    private var mJob: Job = Job()
 
+    override val coroutineContext: CoroutineContext
+        get() = mJob + Dispatchers.Main
+
+    private val errorConsumer = { error : ErrorStatus ->
+        DialogUtils.createNoticeDialog(
+            this,
+            error.title ?: "", error.message
+        ).show()
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -38,5 +60,18 @@ class MainActivity : AppCompatActivity() {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+        receiveJob = launch(Dispatchers.Main) {
+            errorBus.consume(errorConsumer)
+        }
+    }
+
+    override fun onPause() {
+        receiveJob?.cancel()
+        super.onPause()
     }
 }
