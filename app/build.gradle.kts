@@ -5,6 +5,8 @@ plugins {
     alias(libs.plugins.navigation.safearg)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.kapt)
+
 }
 
 android {
@@ -61,8 +63,15 @@ dependencies {
     implementation(libs.bundles.ktor)
     implementation(libs.kotlin.serialization)
     testImplementation(libs.junit)
+    testImplementation(libs.mockk)
+    kaptTest(libs.hilt.test.compiler)
+    testImplementation(libs.hilt.android.test)
+    testImplementation(libs.robolectric)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation (libs.coroutine.test)
+    testImplementation(libs.core.testing)
+    ksp(libs.core.testing)
 
     implementation(libs.hilt.lib)
     implementation(libs.hilt.navigation.compose)
