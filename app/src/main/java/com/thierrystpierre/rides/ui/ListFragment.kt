@@ -62,7 +62,7 @@ class ListFragment : Fragment() {
 
     private val inputWatcher = object : TextWatcher {
         override fun afterTextChanged(s: Editable) {
-            viewModel.quantity = s.toString().toIntOrNull()
+            viewModel.quantity = s.toString().toUIntOrNull()
             button.isEnabled = s.isNotEmpty()
         }
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}

@@ -17,5 +17,9 @@
     <string name="type_colon">Type : </string>
     <string name="sort_by_make">Sort By Make</string>
 
+    <string name="button_ok">Ok</string>
+    <string name="carbon_emission">Carbon Emissions</string>
+    <string name="ce_unit">Units</string>
+
 
 </resources>

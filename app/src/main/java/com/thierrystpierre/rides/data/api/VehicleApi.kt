@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 class VehicleApi @Inject constructor(private val ktorClient : HttpClient) {
 
-    suspend fun getVehicles(numberItems : Int) : HttpResponse = ktorClient.get("https://random-data-api.com/api/vehicle/random_vehicle") {
+    suspend fun getVehicles(numberItems : UInt) : HttpResponse = ktorClient.get("https://random-data-api.com/api/vehicle/random_vehicle") {
         parameter("size", numberItems)
         parameter("is_xml", false)
     }

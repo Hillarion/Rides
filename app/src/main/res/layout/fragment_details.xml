@@ -6,67 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".ui.DetailsFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp">
-
-
-        <TextView
-            android:id="@+id/textview_vin"
-            style="@style/FieldLabelId"
-            android:text="@string/vin_colon"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/textview_vin_value"/>
-        <TextView
-            android:id="@+id/textview_vin_value"
-            style="@style/FieldLabelAccent"
-            app:layout_constraintTop_toBottomOf="@+id/textview_vin"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/textview_make"/>
-        <TextView
-            android:id="@+id/textview_make"
-            style="@style/FieldLabelId"
-            android:text="@string/make_colon"
-            app:layout_constraintTop_toBottomOf="@+id/textview_vin_value"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/textview_make_value"/>
-        <TextView
-            android:id="@+id/textview_make_value"
-            style="@style/FieldLabelAccent"
-            app:layout_constraintTop_toBottomOf="@+id/textview_make"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/textview_color"/>
-        <TextView
-            android:id="@+id/textview_color"
-            style="@style/FieldLabelId"
-            android:text="@string/color_colon"
-            app:layout_constraintTop_toBottomOf="@+id/textview_make_value"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/textview_color_value"/>
-        <TextView
-            android:id="@+id/textview_color_value"
-            style="@style/FieldLabelAccent"
-            app:layout_constraintTop_toBottomOf="@+id/textview_color"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/textview_type"/>
-        <TextView
-            android:id="@+id/textview_type"
-            style="@style/FieldLabelId"
-            android:text="@string/type_colon"
-            app:layout_constraintTop_toBottomOf="@+id/textview_color_value"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/textview_type_value"/>
-        <TextView
-            android:id="@+id/textview_type_value"
-            style="@style/FieldLabelAccent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textview_type"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="horizontal"
+        />
 </androidx.core.widget.NestedScrollView>

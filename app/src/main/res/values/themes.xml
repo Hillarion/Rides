@@ -22,14 +22,65 @@
     </style>
 
     <style name="FieldLabelId" parent="RowLabelStyle">
-        <item name="android:layout_marginTop">@dimen/fab_margin</item>
+        <item name="android:layout_marginTop">@dimen/mid_margin</item>
         <item name="android:textSize">@dimen/field_label_size</item>
     </style>
     <style name="FieldLabelAccent" parent="RowLabelStyle">
         <item name="android:textAlignment">center</item>
-        <item name="android:layout_marginStart">@dimen/fab_margin</item>
+        <item name="android:layout_marginStart">@dimen/mid_margin</item>
         <item name="android:textSize">@dimen/field_text_size</item>
         <item name="android:textStyle">bold</item>
     </style>
+    <style name="GenerigTextStyle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 
+    <style name="MainTextStyle" parent="GenerigTextStyle">
+        <item name="android:textSize">@dimen/title_size</item>
+    </style>
+    <style name="SecondaryTextStyle" parent="GenerigTextStyle">
+        <item name="android:textSize">@dimen/text_size</item>
+    </style>
+
+
+    <style name="ButtonStyle">
+        <item name="android:minWidth">@dimen/min_button_width</item>
+        <item name="android:minHeight">@dimen/min_button_height</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/bordered_frame</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CETextStyle" >
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CETitleStyle">
+        <item name="android:textSize">@dimen/title_size</item>
+    </style>
+
+    <style name="CEValueStyle" parent="CETextStyle">
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/huge_text_size</item>
+        <item name="android:textColor">@color/dark_red</item>
+    </style>
+
+    <style name="CEUnitStyle" parent="CETextStyle">
+        <item name="android:gravity">bottom</item>
+        <item name="android:textSize">@dimen/text_size</item>
+    </style>
 </resources>

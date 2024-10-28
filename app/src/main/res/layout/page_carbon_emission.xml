@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/mid_margin">
+
+ <TextView
+     android:id="@+id/ce_title"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="@string/carbon_emission"
+     style="@style/CETitleStyle"
+     app:layout_constraintTop_toTopOf="parent"
+     app:layout_constraintStart_toStartOf="parent"
+     app:layout_constraintEnd_toEndOf="parent"
+     app:layout_constraintBottom_toTopOf="@+id/carbon_emission_result"
+     android:layout_margin="@dimen/page_margin"
+     />
+    <LinearLayout
+        android:id="@+id/carbon_emission_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ce_title"
+        android:weightSum="10"
+        android:layout_margin="@dimen/activity_double_margin"
+        android:layout_marginTop="@dimen/activity_double_margin"
+        >
+    <TextView
+        android:id="@+id/carbon_emission_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/CEValueStyle"
+        android:layout_weight="6"
+        />
+    <TextView
+        android:id="@+id/carbon_emission_unit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        style="@style/CEUnitStyle"
+        android:text="@string/ce_unit"
+        android:layout_weight="4"
+        />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
